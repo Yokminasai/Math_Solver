@@ -1,0 +1,2 @@
+2025-07-04 14:05:01,550:ERROR:Error in linear equation input: could not convert string to float: '5(2x−3)−4(x+7)=3(2x+1)+2'
+2025-07-04 14:05:15,304:ERROR:Error in linear equation input: could not convert string to float: '5(2x−3)−4(x+7) = 3(2x+1)+2'
