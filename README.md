@@ -20,8 +20,8 @@ A professional, user-friendly GUI application for solving a wide range of mathem
 ## Installation
 1. Clone this repository:
    ```
-   git clone <repository-url>
-   cd physic
+   git clone https://github.com/Yokminasai/Math_Solver/
+   cd Math_Solver
    ```
 2. Install dependencies:
    ```
