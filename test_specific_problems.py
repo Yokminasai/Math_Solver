@@ -1,0 +1,255 @@
+#!/usr/bin/env python3
+"""
+Specific test cases for hard mathematical problems
+ทดสอบโจทย์เฉพาะที่ยากๆ
+"""
+
+from math_solver import MathSolver
+from advanced_math import AdvancedMathSolver
+import time
+
+def test_specific_problems():
+    """ทดสอบโจทย์เฉพาะที่ยากๆ"""
+    
+    print("="*80)
+    print("🎯 ทดสอบโจทย์เฉพาะที่ยากๆ")
+    print("="*80)
+    
+    solver = MathSolver()
+    advanced_solver = AdvancedMathSolver()
+    
+    # โจทย์ที่ยากๆ และน่าสนใจ
+    hard_problems = [
+        # 1. Complex Analysis - Residue calculation
+        {
+            "problem": "residue of 1/(z^2+1) at z=i",
+            "expected_type": "complex_analysis",
+            "description": "คำนวณ Residue ของฟังก์ชัน 1/(z²+1) ที่จุด z=i"
+        },
+        
+        # 2. Abstract Algebra - Group theory
+        {
+            "problem": "order and generators of symmetric group S4",
+            "expected_type": "abstract_algebra",
+            "description": "หา Order และ Generators ของ Symmetric Group S₄"
+        },
+        
+        # 3. Quantum Mechanics - Harmonic oscillator
+        {
+            "problem": "eigenstates and energy levels of quantum harmonic oscillator",
+            "expected_type": "quantum_mechanics",
+            "description": "หา Eigenstates และ Energy Levels ของ Quantum Harmonic Oscillator"
+        },
+        
+        # 4. Chaos Theory - Lyapunov exponent
+        {
+            "problem": "lyapunov exponent of logistic map x->4x(1-x)",
+            "expected_type": "chaos_theory",
+            "description": "คำนวณ Lyapunov Exponent ของ Logistic Map"
+        },
+        
+        # 5. Functional Analysis - Operator properties
+        {
+            "problem": "is operator A=[[1,2],[0,3]] hermitian?",
+            "expected_type": "functional_analysis",
+            "description": "ตรวจสอบว่า Operator A=[[1,2],[0,3]] เป็น Hermitian หรือไม่"
+        },
+        
+        # 6. Optimization - Lagrange multipliers
+        {
+            "problem": "minimize x^2+y^2 subject to x+y=1 using lagrange multipliers",
+            "expected_type": "optimization",
+            "description": "ใช้ Lagrange Multipliers หาค่า Min ของ x²+y² subject to x+y=1"
+        },
+        
+        # 7. Differential Geometry - Curvature
+        {
+            "problem": "gaussian curvature of sphere radius R",
+            "expected_type": "differential_geometry",
+            "description": "คำนวณ Gaussian Curvature ของทรงกลมรัศมี R"
+        },
+        
+        # 8. Advanced Number Theory - Zeta function
+        {
+            "problem": "zeta function at s=3",
+            "expected_type": "number_theory_advanced",
+            "description": "คำนวณค่า ζ(3) (Riemann Zeta Function)"
+        }
+    ]
+    
+    results = []
+    
+    for i, test_case in enumerate(hard_problems, 1):
+        print(f"\n{'='*60}")
+        print(f"🧮 โจทย์ที่ {i}: {test_case['description']}")
+        print(f"📝 โจทย์: {test_case['problem']}")
+        print(f"🎯 ประเภทที่คาดหวัง: {test_case['expected_type']}")
+        print("-" * 60)
+        
+        start_time = time.time()
+        
+        try:
+            # ใช้ advanced solver
+            result = advanced_solver.solve_advanced_problem(test_case['problem'])
+            
+            end_time = time.time()
+            solve_time = end_time - start_time
+            
+            # ตรวจสอบผลลัพธ์
+            if "error" in result:
+                print(f"❌ Error: {result['error']}")
+                success = False
+            else:
+                detected_type = result.get('problem_type', 'unknown')
+                print(f"✅ Success! Detected type: {detected_type}")
+                print(f"⏱️ เวลาที่ใช้: {solve_time:.2f} วินาที")
+                
+                # แสดงผลลัพธ์
+                if 'result' in result:
+                    print(f"📊 Result: {result['result']}")
+                elif 'answer' in result:
+                    print(f"📊 Answer: {result['answer']}")
+                
+                # แสดงจำนวนขั้นตอน
+                if 'steps' in result:
+                    print(f"📝 Steps: {len(result['steps'])} ขั้นตอน")
+                    # แสดงขั้นตอนแรก 3 ขั้นตอน
+                    for j, step in enumerate(result['steps'][:3], 1):
+                        print(f"   {j}. {step}")
+                    if len(result['steps']) > 3:
+                        print(f"   ... และอีก {len(result['steps'])-3} ขั้นตอน")
+                
+                success = True
+            
+            # บันทึกผลลัพธ์
+            results.append({
+                "problem": test_case['problem'],
+                "description": test_case['description'],
+                "expected_type": test_case['expected_type'],
+                "detected_type": detected_type if 'detected_type' in locals() else 'unknown',
+                "success": success,
+                "solve_time": solve_time,
+                "error": result.get('error', None) if not success else None
+            })
+            
+        except Exception as e:
+            print(f"❌ Exception: {str(e)}")
+            results.append({
+                "problem": test_case['problem'],
+                "description": test_case['description'],
+                "expected_type": test_case['expected_type'],
+                "detected_type": "exception",
+                "success": False,
+                "solve_time": time.time() - start_time,
+                "error": str(e)
+            })
+    
+    # สรุปผลการทดสอบ
+    print(f"\n{'='*80}")
+    print("📊 สรุปผลการทดสอบ")
+    print("="*80)
+    
+    total_tests = len(results)
+    successful_tests = sum(1 for r in results if r['success'])
+    failed_tests = total_tests - successful_tests
+    
+    print(f"🎯 โจทย์ทั้งหมด: {total_tests}")
+    print(f"✅ สำเร็จ: {successful_tests}")
+    print(f"❌ ล้มเหลว: {failed_tests}")
+    print(f"📈 อัตราความสำเร็จ: {(successful_tests/total_tests)*100:.1f}%")
+    
+    if failed_tests > 0:
+        print(f"\n❌ โจทย์ที่ล้มเหลว:")
+        for result in results:
+            if not result['success']:
+                print(f"   - {result['description']}")
+                print(f"     Error: {result['error']}")
+    
+    # แสดงสถิติเวลา
+    successful_times = [r['solve_time'] for r in results if r['success']]
+    if successful_times:
+        avg_time = sum(successful_times) / len(successful_times)
+        max_time = max(successful_times)
+        min_time = min(successful_times)
+        print(f"\n⏱️ สถิติเวลา (โจทย์ที่สำเร็จ):")
+        print(f"   เฉลี่ย: {avg_time:.2f} วินาที")
+        print(f"   สูงสุด: {max_time:.2f} วินาที")
+        print(f"   ต่ำสุด: {min_time:.2f} วินาที")
+    
+    print(f"\n{'='*80}")
+    print("🎉 การทดสอบเสร็จสิ้น!")
+    print("="*80)
+    
+    return results
+
+def test_custom_problem():
+    """ทดสอบโจทย์ที่ผู้ใช้กำหนดเอง"""
+    
+    print("\n🔬 ทดสอบโจทย์ที่กำหนดเอง")
+    print("-" * 40)
+    
+    solver = MathSolver()
+    advanced_solver = AdvancedMathSolver()
+    
+    while True:
+        problem = input("\nใส่โจทย์ที่ต้องการทดสอบ (หรือ 'quit' เพื่อออก): ").strip()
+        
+        if problem.lower() in ['quit', 'exit', 'q']:
+            break
+            
+        if not problem:
+            continue
+            
+        print(f"\n🔍 กำลังแก้โจทย์: {problem}")
+        print("-" * 50)
+        
+        start_time = time.time()
+        
+        try:
+            # ลองใช้ advanced solver ก่อน
+            result = advanced_solver.solve_advanced_problem(problem)
+            
+            if "error" in result:
+                # ถ้า advanced solver ล้มเหลว ลองใช้ basic solver
+                result = solver.solve_problem(problem)
+            
+            end_time = time.time()
+            
+            print(f"⏱️ เวลาที่ใช้: {end_time - start_time:.2f} วินาที")
+            
+            if "error" in result:
+                print(f"❌ Error: {result['error']}")
+            else:
+                print(f"✅ Type: {result.get('type', 'Unknown')}")
+                
+                if 'result' in result:
+                    print(f"📊 Result: {result['result']}")
+                elif 'answer' in result:
+                    print(f"📊 Answer: {result['answer']}")
+                elif 'solutions' in result:
+                    print(f"📊 Solutions: {result['solutions']}")
+                
+                if 'steps' in result and result['steps']:
+                    print(f"\n📝 Solution Steps ({len(result['steps'])} steps):")
+                    for i, step in enumerate(result['steps'], 1):
+                        print(f"   {i}. {step}")
+                
+                if 'latex' in result and result['latex']:
+                    print(f"\n🔤 LaTeX: {result['latex']}")
+                    
+        except Exception as e:
+            print(f"❌ Exception: {str(e)}")
+            import traceback
+            print(traceback.format_exc())
+
+if __name__ == "__main__":
+    print("🚀 เริ่มต้นระบบทดสอบโจทย์เฉพาะ")
+    
+    choice = input("\nเลือกการทดสอบ:\n1. ทดสอบโจทย์ยากๆ ที่กำหนดไว้\n2. ทดสอบโจทย์ที่กำหนดเอง\nเลือก (1/2): ").strip()
+    
+    if choice == "1":
+        test_specific_problems()
+    elif choice == "2":
+        test_custom_problem()
+    else:
+        print("❌ ตัวเลือกไม่ถูกต้อง") 

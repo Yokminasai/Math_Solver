@@ -1,0 +1,1169 @@
+{
+  "summary": {
+    "total_tests": 56,
+    "passed_tests": 49,
+    "failed_tests": 7,
+    "success_rate": 87.5
+  },
+  "test_results": [
+    {
+      "test_name": "Advanced Problems",
+      "problem": "residue of 1/(z^2+1) at z=i",
+      "success": true,
+      "result": {
+        "result": {
+          "singularities": [],
+          "residues": {},
+          "function": "1/(z**2 + 1)"
+        },
+        "steps": [
+          "Advanced problem type detected: complex_analysis",
+          "Description: Complex functions, residues, and contour integrals",
+          "Analyzing function: 1/(z**2 + 1)",
+          "Could not determine singularities analytically",
+          "Function has branch points due to multivalued functions"
+        ],
+        "latex": "\\frac{1}{z^{2} + 1}",
+        "plot_data": {
+          "type": "complex",
+          "function": "1/(z**2 + 1)",
+          "points": []
+        },
+        "problem_type": "complex_analysis",
+        "original_problem": "residue of 1/(z^2+1) at z=i"
+      },
+      "expected_type": null
+    },
+    {
+      "test_name": "Basic Arithmetic",
+      "problem": "2 + 3",
+      "success": true,
+      "result": {
+        "type": "arithmetic",
+        "original_problem": "2 + 3",
+        "normalized_expression": "2+3",
+        "answer": "5",
+        "steps": [
+          "Problem type detected: arithmetic",
+          "Description: Basic arithmetic operations including +, -, *, /, ^",
+          "Normalized equation: 2+3",
+          "1. Normalize expression",
+          "   2 + 3 → 2+3",
+          "2. Evaluate expression",
+          "   2+3 = 5",
+          "Warning: Could not validate solution: 'MathSolver' object has no attribute '_validate_solution'"
+        ]
+      },
+      "expected_type": null
+    },
+    {
+      "test_name": "Basic Arithmetic",
+      "problem": "10 - 4",
+      "success": true,
+      "result": {
+        "type": "arithmetic",
+        "original_problem": "10 - 4",
+        "normalized_expression": "10-4",
+        "answer": "6",
+        "steps": [
+          "Problem type detected: arithmetic",
+          "Description: Basic arithmetic operations including +, -, *, /, ^",
+          "Normalized equation: 10-4",
+          "1. Normalize expression",
+          "   10 - 4 → 10-4",
+          "2. Evaluate expression",
+          "   10-4 = 6",
+          "Warning: Could not validate solution: 'MathSolver' object has no attribute '_validate_solution'"
+        ]
+      },
+      "expected_type": null
+    },
+    {
+      "test_name": "Basic Arithmetic",
+      "problem": "3 * 4",
+      "success": true,
+      "result": {
+        "type": "arithmetic",
+        "original_problem": "3 * 4",
+        "normalized_expression": "3*4",
+        "answer": "12",
+        "steps": [
+          "Problem type detected: arithmetic",
+          "Description: Basic arithmetic operations including +, -, *, /, ^",
+          "Normalized equation: 3*4",
+          "1. Normalize expression",
+          "   3 * 4 → 3*4",
+          "2. Evaluate expression",
+          "   3*4 = 12",
+          "Warning: Could not validate solution: 'MathSolver' object has no attribute '_validate_solution'"
+        ]
+      },
+      "expected_type": null
+    },
+    {
+      "test_name": "Basic Arithmetic",
+      "problem": "15 / 3",
+      "success": true,
+      "result": {
+        "type": "arithmetic",
+        "original_problem": "15 / 3",
+        "normalized_expression": "15/3",
+        "answer": "5.0",
+        "steps": [
+          "Problem type detected: arithmetic",
+          "Description: Basic arithmetic operations including +, -, *, /, ^",
+          "Normalized equation: 15/3",
+          "1. Normalize expression",
+          "   15 / 3 → 15/3",
+          "2. Evaluate expression",
+          "   15/3 = 5.0",
+          "Warning: Could not validate solution: 'MathSolver' object has no attribute '_validate_solution'"
+        ]
+      },
+      "expected_type": null
+    },
+    {
+      "test_name": "Basic Arithmetic",
+      "problem": "2^3",
+      "success": true,
+      "result": {
+        "type": "arithmetic",
+        "original_problem": "2^3",
+        "normalized_expression": "2**3",
+        "answer": "8",
+        "steps": [
+          "Problem type detected: arithmetic",
+          "Description: Basic arithmetic operations including +, -, *, /, ^",
+          "Normalized equation: 2^3",
+          "1. Normalize expression",
+          "   2^3 → 2**3",
+          "2. Evaluate expression",
+          "   2**3 = 8",
+          "Warning: Could not validate solution: 'MathSolver' object has no attribute '_validate_solution'"
+        ]
+      },
+      "expected_type": null
+    },
+    {
+      "test_name": "Basic Arithmetic",
+      "problem": "2 + 3 * 4",
+      "success": true,
+      "result": {
+        "type": "arithmetic",
+        "original_problem": "2 + 3 * 4",
+        "normalized_expression": "2+3*4",
+        "answer": "14",
+        "steps": [
+          "Problem type detected: arithmetic",
+          "Description: Basic arithmetic operations including +, -, *, /, ^",
+          "Normalized equation: 2+3*4",
+          "1. Normalize expression",
+          "   2 + 3 * 4 → 2+3*4",
+          "2. Evaluate expression",
+          "   2+3*4 = 14",
+          "Warning: Could not validate solution: 'MathSolver' object has no attribute '_validate_solution'"
+        ]
+      },
+      "expected_type": null
+    },
+    {
+      "test_name": "Basic Arithmetic",
+      "problem": "(2 + 3) * 4",
+      "success": true,
+      "result": {
+        "type": "arithmetic",
+        "original_problem": "(2 + 3) * 4",
+        "normalized_expression": "(2+3)*4",
+        "answer": "20",
+        "steps": [
+          "Problem type detected: arithmetic",
+          "Description: Basic arithmetic operations including +, -, *, /, ^",
+          "Normalized equation: (2+3)*4",
+          "1. Normalize expression",
+          "   (2 + 3) * 4 → (2+3)*4",
+          "2. Evaluate expression",
+          "   (2+3)*4 = 20",
+          "Warning: Could not validate solution: 'MathSolver' object has no attribute '_validate_solution'"
+        ]
+      },
+      "expected_type": null
+    },
+    {
+      "test_name": "Basic Arithmetic",
+      "problem": "sqrt(16)",
+      "success": true,
+      "result": {
+        "type": "arithmetic",
+        "original_problem": "sqrt(16)",
+        "normalized_expression": "sqrt(16)",
+        "answer": "4.0",
+        "steps": [
+          "Problem type detected: arithmetic",
+          "Description: Basic arithmetic operations including +, -, *, /, ^",
+          "Normalized equation: sqrt(16)",
+          "1. Normalize expression",
+          "   sqrt(16) → sqrt(16)",
+          "2. Evaluate expression",
+          "   sqrt(16) = 4.0",
+          "Warning: Could not validate solution: 'MathSolver' object has no attribute '_validate_solution'"
+        ]
+      },
+      "expected_type": null
+    },
+    {
+      "test_name": "Basic Arithmetic",
+      "problem": "sin(pi/2)",
+      "success": true,
+      "result": {
+        "type": "arithmetic",
+        "original_problem": "sin(pi/2)",
+        "normalized_expression": "sin(pi/2)",
+        "answer": "1.0",
+        "steps": [
+          "Problem type detected: arithmetic",
+          "Description: Basic arithmetic operations including +, -, *, /, ^",
+          "Normalized equation: sin(pi/2)",
+          "1. Normalize expression",
+          "   sin(pi/2) → sin(pi/2)",
+          "2. Evaluate expression",
+          "   sin(pi/2) = 1.0",
+          "Warning: Could not validate solution: 'MathSolver' object has no attribute '_validate_solution'"
+        ]
+      },
+      "expected_type": null
+    },
+    {
+      "test_name": "Basic Arithmetic",
+      "problem": "cos(pi)",
+      "success": true,
+      "result": {
+        "type": "arithmetic",
+        "original_problem": "cos(pi)",
+        "normalized_expression": "cos(pi)",
+        "answer": "-1.0",
+        "steps": [
+          "Problem type detected: arithmetic",
+          "Description: Basic arithmetic operations including +, -, *, /, ^",
+          "Normalized equation: cos(pi)",
+          "1. Normalize expression",
+          "   cos(pi) → cos(pi)",
+          "2. Evaluate expression",
+          "   cos(pi) = -1.0",
+          "Warning: Could not validate solution: 'MathSolver' object has no attribute '_validate_solution'"
+        ]
+      },
+      "expected_type": null
+    },
+    {
+      "test_name": "Basic Arithmetic",
+      "problem": "log(e)",
+      "success": true,
+      "result": {
+        "type": "arithmetic",
+        "original_problem": "log(e)",
+        "normalized_expression": "log(e)",
+        "answer": "1.0",
+        "steps": [
+          "Problem type detected: arithmetic",
+          "Description: Basic arithmetic operations including +, -, *, /, ^",
+          "Normalized equation: log(e)",
+          "1. Normalize expression",
+          "   log(e) → log(e)",
+          "2. Evaluate expression",
+          "   log(e) = 1.0",
+          "Warning: Could not validate solution: 'MathSolver' object has no attribute '_validate_solution'"
+        ]
+      },
+      "expected_type": null
+    },
+    {
+      "test_name": "Basic Arithmetic",
+      "problem": "abs(-5)",
+      "success": true,
+      "result": {
+        "type": "arithmetic",
+        "original_problem": "abs(-5)",
+        "normalized_expression": "abs(-5)",
+        "answer": "5",
+        "steps": [
+          "Problem type detected: arithmetic",
+          "Description: Basic arithmetic operations including +, -, *, /, ^",
+          "Normalized equation: abs(-5)",
+          "1. Normalize expression",
+          "   abs(-5) → abs(-5)",
+          "2. Evaluate expression",
+          "   abs(-5) = 5",
+          "Warning: Could not validate solution: 'MathSolver' object has no attribute '_validate_solution'"
+        ]
+      },
+      "expected_type": null
+    },
+    {
+      "test_name": "Calculus",
+      "problem": "derivative of x^2",
+      "success": true,
+      "result": {
+        "type": "calculus",
+        "original_problem": "derivative of x^2",
+        "answer": "2*x",
+        "steps": [
+          "Problem type detected: calculus",
+          "Description: Derivatives, integrals, limits, and series",
+          "1. Computing derivative",
+          "2. Expression: x**2",
+          "3. Result: 2*x"
+        ]
+      },
+      "expected_type": null
+    },
+    {
+      "test_name": "Calculus",
+      "problem": "integral of x^2",
+      "success": true,
+      "result": {
+        "type": "calculus",
+        "original_problem": "integral of x^2",
+        "answer": "x**3/3",
+        "steps": [
+          "Problem type detected: calculus",
+          "Description: Derivatives, integrals, limits, and series",
+          "1. Computing integral",
+          "2. Expression: x**2",
+          "3. Result: x**3/3"
+        ]
+      },
+      "expected_type": null
+    },
+    {
+      "test_name": "Edge Cases",
+      "problem": "",
+      "success": false,
+      "result": {
+        "error": "Invalid input: Problem contains invalid characters or is empty",
+        "valid_chars": "Allowed characters: letters, numbers, basic math operators (+,-,*,/,^), and common math symbols"
+      },
+      "expected_type": null
+    },
+    {
+      "test_name": "Edge Cases",
+      "problem": "1/0",
+      "success": false,
+      "result": {
+        "error": "Division by zero",
+        "type": "arithmetic",
+        "original_problem": "1/0",
+        "problem_type": "arithmetic",
+        "steps": [
+          "Problem type detected: arithmetic",
+          "Description: Basic arithmetic operations including +, -, *, /, ^",
+          "Normalized equation: 1/0"
+        ]
+      },
+      "expected_type": null
+    },
+    {
+      "test_name": "Edge Cases",
+      "problem": "log(-1)",
+      "success": false,
+      "result": {
+        "error": "Domain error",
+        "type": "arithmetic",
+        "original_problem": "log(-1)",
+        "problem_type": "arithmetic",
+        "steps": [
+          "Problem type detected: arithmetic",
+          "Description: Basic arithmetic operations including +, -, *, /, ^",
+          "Normalized equation: log(-1)"
+        ]
+      },
+      "expected_type": null
+    },
+    {
+      "test_name": "Edge Cases",
+      "problem": "sqrt(-1)",
+      "success": false,
+      "result": {
+        "error": "Complex result",
+        "type": "arithmetic",
+        "original_problem": "sqrt(-1)",
+        "problem_type": "arithmetic",
+        "steps": [
+          "Problem type detected: arithmetic",
+          "Description: Basic arithmetic operations including +, -, *, /, ^",
+          "Normalized equation: sqrt(-1)"
+        ]
+      },
+      "expected_type": null
+    },
+    {
+      "test_name": "Edge Cases",
+      "problem": "solve x^5 + x + 1 = 0",
+      "success": false,
+      "result": {
+        "error": "No algebraic solution",
+        "type": "equation",
+        "original_problem": "solve x^5 + x + 1 = 0",
+        "problem_type": "equation",
+        "steps": [
+          "Problem type detected: equation",
+          "Description: Polynomial equations",
+          "Normalized equation: solve x^5 + x + 1 = 0"
+        ]
+      },
+      "expected_type": null
+    },
+    {
+      "test_name": "Edge Cases",
+      "problem": "∞ + ∞",
+      "success": false,
+      "result": {
+        "error": "Indeterminate form",
+        "type": "arithmetic",
+        "original_problem": "∞ + ∞",
+        "problem_type": "arithmetic",
+        "steps": [
+          "Problem type detected: arithmetic",
+          "Description: Basic arithmetic operations including +, -, *, /, ^",
+          "Normalized equation: ∞ + ∞"
+        ]
+      },
+      "expected_type": null
+    },
+    {
+      "test_name": "Edge Cases",
+      "problem": "0/0",
+      "success": false,
+      "result": {
+        "error": "Indeterminate form",
+        "type": "arithmetic",
+        "original_problem": "0/0",
+        "problem_type": "arithmetic",
+        "steps": [
+          "Problem type detected: arithmetic",
+          "Description: Basic arithmetic operations including +, -, *, /, ^",
+          "Normalized equation: 0/0"
+        ]
+      },
+      "expected_type": null
+    },
+    {
+      "test_name": "Equations",
+      "problem": "x + 5 = 10",
+      "success": true,
+      "result": {
+        "solutions": [
+          5.0
+        ],
+        "steps": [
+          "1. Normalize equation",
+          "   x + 5 = 10 → x+5=10",
+          "2. Move terms to left side",
+          "   (x+5)-(10) = 0",
+          "3. Solve equation",
+          "   x = 5"
+        ],
+        "original_equation": "x + 5 = 10",
+        "normalized_equation": "x+5=10"
+      },
+      "expected_type": null
+    },
+    {
+      "test_name": "Equations",
+      "problem": "x^2 = 16",
+      "success": true,
+      "result": {
+        "solutions": [
+          -4.0,
+          4.0
+        ],
+        "steps": [
+          "1. Normalize equation",
+          "   x^2 = 16 → x^2=16",
+          "2. Move terms to left side",
+          "   (x^2)-(16) = 0",
+          "3. Solve equation",
+          "   x = -4, 4"
+        ],
+        "original_equation": "x^2 = 16",
+        "normalized_equation": "x^2=16"
+      },
+      "expected_type": null
+    },
+    {
+      "test_name": "Equations",
+      "problem": "2x + 3 = 7",
+      "success": true,
+      "result": {
+        "solutions": [
+          2.0
+        ],
+        "steps": [
+          "1. Normalize equation",
+          "   2x + 3 = 7 → 2*x+3=7",
+          "2. Move terms to left side",
+          "   (2*x+3)-(7) = 0",
+          "3. Solve equation",
+          "   x = 2"
+        ],
+        "original_equation": "2x + 3 = 7",
+        "normalized_equation": "2*x+3=7"
+      },
+      "expected_type": null
+    },
+    {
+      "test_name": "Equations",
+      "problem": "x^2 + 2x + 1 = 0",
+      "success": true,
+      "result": {
+        "solutions": [
+          -1.0
+        ],
+        "steps": [
+          "1. Normalize equation",
+          "   x^2 + 2x + 1 = 0 → x^2+2*x+1=0",
+          "2. Move terms to left side",
+          "   (x^2+2*x+1)-(0) = 0",
+          "3. Solve equation",
+          "   x = -1"
+        ],
+        "original_equation": "x^2 + 2x + 1 = 0",
+        "normalized_equation": "x^2+2*x+1=0"
+      },
+      "expected_type": null
+    },
+    {
+      "test_name": "Equations",
+      "problem": "x^2 - 4 = 0",
+      "success": true,
+      "result": {
+        "solutions": [
+          -2.0,
+          2.0
+        ],
+        "steps": [
+          "1. Normalize equation",
+          "   x^2 - 4 = 0 → x^2-4=0",
+          "2. Move terms to left side",
+          "   (x^2-4)-(0) = 0",
+          "3. Solve equation",
+          "   x = -2, 2"
+        ],
+        "original_equation": "x^2 - 4 = 0",
+        "normalized_equation": "x^2-4=0"
+      },
+      "expected_type": null
+    },
+    {
+      "test_name": "Geometry",
+      "problem": "area of circle radius 2",
+      "success": true,
+      "result": {
+        "answer": 12.566370614359172,
+        "steps": [
+          "1. Use circle area formula",
+          "   A = πr²",
+          "2. Substitute r = 2.0",
+          "   A = π × 2.0² = 12.566370614359172"
+        ],
+        "operation": "area",
+        "shape": "circle",
+        "parameters": {
+          "radius": 2.0
+        }
+      },
+      "expected_type": null
+    },
+    {
+      "test_name": "Geometry",
+      "problem": "perimeter of circle radius 2",
+      "success": true,
+      "result": {
+        "answer": 12.566370614359172,
+        "steps": [
+          "1. Use circle perimeter formula",
+          "   P = 2πr",
+          "2. Substitute r = 2.0",
+          "   P = 2π × 2.0 = 12.566370614359172"
+        ],
+        "operation": "perimeter",
+        "shape": "circle",
+        "parameters": {
+          "radius": 2.0
+        }
+      },
+      "expected_type": null
+    },
+    {
+      "test_name": "Geometry",
+      "problem": "area of rectangle length 3 width 4",
+      "success": true,
+      "result": {
+        "answer": 12.0,
+        "steps": [
+          "1. Use rectangle area formula",
+          "   A = l × w",
+          "2. Substitute l = 3.0, w = 4.0",
+          "   A = 3.0 × 4.0 = 12.0"
+        ],
+        "operation": "area",
+        "shape": "rectangle",
+        "parameters": {
+          "length": 3.0,
+          "width": 4.0
+        }
+      },
+      "expected_type": null
+    },
+    {
+      "test_name": "Geometry",
+      "problem": "perimeter of rectangle length 3 width 4",
+      "success": true,
+      "result": {
+        "answer": 14.0,
+        "steps": [
+          "1. Use rectangle perimeter formula",
+          "   P = 2(l + w)",
+          "2. Substitute l = 3.0, w = 4.0",
+          "   P = 2(3.0 + 4.0) = 14.0"
+        ],
+        "operation": "perimeter",
+        "shape": "rectangle",
+        "parameters": {
+          "length": 3.0,
+          "width": 4.0
+        }
+      },
+      "expected_type": null
+    },
+    {
+      "test_name": "Geometry",
+      "problem": "area of triangle base 3 height 4",
+      "success": true,
+      "result": {
+        "answer": 6.0,
+        "steps": [
+          "1. Use triangle area formula",
+          "   A = ½bh",
+          "2. Substitute b = 3.0, h = 4.0",
+          "   A = ½ × 3.0 × 4.0 = 6.0"
+        ],
+        "operation": "area",
+        "shape": "triangle",
+        "parameters": {
+          "base": 3.0,
+          "height": 4.0
+        }
+      },
+      "expected_type": null
+    },
+    {
+      "test_name": "Geometry",
+      "problem": "volume of sphere radius 2",
+      "success": true,
+      "result": {
+        "answer": 33.510321638291124,
+        "steps": [
+          "1. Use sphere volume formula",
+          "   V = (4/3)πr³",
+          "2. Substitute r = 2.0",
+          "   V = (4/3)π × 2.0³ = 33.510321638291124"
+        ],
+        "operation": "volume",
+        "shape": "sphere",
+        "parameters": {
+          "radius": 2.0
+        }
+      },
+      "expected_type": null
+    },
+    {
+      "test_name": "Geometry",
+      "problem": "volume of cylinder radius 2 height 3",
+      "success": true,
+      "result": {
+        "answer": 37.69911184307752,
+        "steps": [
+          "1. Use cylinder volume formula",
+          "   V = πr²h",
+          "2. Substitute r = 2.0, h = 3.0",
+          "   V = π × 2.0² × 3.0 = 37.69911184307752"
+        ],
+        "operation": "volume",
+        "shape": "cylinder",
+        "parameters": {
+          "radius": 2.0,
+          "height": 3.0
+        }
+      },
+      "expected_type": null
+    },
+    {
+      "test_name": "Linear Algebra",
+      "problem": "determinant of [[1, 2], [3, 4]]",
+      "success": true,
+      "result": {
+        "type": "linear_algebra",
+        "original_problem": "determinant of [[1, 2], [3, 4]]",
+        "operation": "determinant",
+        "matrix": "[[1, 2], [3, 4]]",
+        "answer": "-2",
+        "steps": [
+          "Problem type detected: linear algebra",
+          "Description: Matrices, vectors, and linear transformations",
+          "1. Extracted matrix: [[1, 2], [3, 4]]",
+          "2. Converted to matrix object",
+          "3. Performing determinant",
+          "   |A| = -2"
+        ]
+      },
+      "expected_type": null
+    },
+    {
+      "test_name": "Linear Algebra",
+      "problem": "rank of [[1, 2], [2, 4]]",
+      "success": true,
+      "result": {
+        "type": "linear_algebra",
+        "original_problem": "rank of [[1, 2], [2, 4]]",
+        "operation": "rank",
+        "matrix": "[[1, 2], [2, 4]]",
+        "answer": "1",
+        "steps": [
+          "Problem type detected: linear algebra",
+          "Description: Matrices, vectors, and linear transformations",
+          "1. Extracted matrix: [[1, 2], [2, 4]]",
+          "2. Converted to matrix object",
+          "3. Performing rank",
+          "   rank(A) = 1"
+        ]
+      },
+      "expected_type": null
+    },
+    {
+      "test_name": "Linear Algebra",
+      "problem": "trace of [[1, 2], [3, 4]]",
+      "success": true,
+      "result": {
+        "type": "linear_algebra",
+        "original_problem": "trace of [[1, 2], [3, 4]]",
+        "operation": "trace",
+        "matrix": "[[1, 2], [3, 4]]",
+        "answer": "5",
+        "steps": [
+          "Problem type detected: linear algebra",
+          "Description: Matrices, vectors, and linear transformations",
+          "1. Extracted matrix: [[1, 2], [3, 4]]",
+          "2. Converted to matrix object",
+          "3. Performing trace",
+          "   tr(A) = 5"
+        ]
+      },
+      "expected_type": null
+    },
+    {
+      "test_name": "Number Theory",
+      "problem": "is 17 prime",
+      "success": true,
+      "result": {
+        "type": "number_theory",
+        "original_problem": "is 17 prime",
+        "answer": true,
+        "steps": [
+          "Problem type detected: number theory",
+          "Description: Prime numbers, GCD, LCM, and modular arithmetic",
+          "1. Checking if number is prime",
+          "   Number: 17",
+          "   Result: True"
+        ]
+      },
+      "expected_type": null
+    },
+    {
+      "test_name": "Number Theory",
+      "problem": "is 15 prime",
+      "success": true,
+      "result": {
+        "type": "number_theory",
+        "original_problem": "is 15 prime",
+        "answer": false,
+        "steps": [
+          "Problem type detected: number theory",
+          "Description: Prime numbers, GCD, LCM, and modular arithmetic",
+          "1. Checking if number is prime",
+          "   Number: 15",
+          "   Result: False"
+        ]
+      },
+      "expected_type": null
+    },
+    {
+      "test_name": "Number Theory",
+      "problem": "gcd of 12 and 18",
+      "success": true,
+      "result": {
+        "type": "number_theory",
+        "original_problem": "gcd of 12 and 18",
+        "answer": 6,
+        "steps": [
+          "Problem type detected: number theory",
+          "Description: Prime numbers, GCD, LCM, and modular arithmetic",
+          "1. Computing greatest common divisor",
+          "   Numbers: 12, 18",
+          "   Result: 6"
+        ]
+      },
+      "expected_type": null
+    },
+    {
+      "test_name": "Number Theory",
+      "problem": "lcm of 12 and 18",
+      "success": true,
+      "result": {
+        "type": "number_theory",
+        "original_problem": "lcm of 12 and 18",
+        "answer": 36,
+        "steps": [
+          "Problem type detected: number theory",
+          "Description: Prime numbers, GCD, LCM, and modular arithmetic",
+          "1. Computing least common multiple",
+          "   Numbers: 12, 18",
+          "   Result: 36"
+        ]
+      },
+      "expected_type": null
+    },
+    {
+      "test_name": "Number Theory",
+      "problem": "prime factors of 12",
+      "success": true,
+      "result": {
+        "type": "number_theory",
+        "original_problem": "prime factors of 12",
+        "answer": [
+          2,
+          2,
+          3
+        ],
+        "steps": [
+          "Problem type detected: number theory",
+          "Description: Prime numbers, GCD, LCM, and modular arithmetic",
+          "1. Computing prime factorization",
+          "   Number: 12",
+          "   Result: [2, 2, 3]"
+        ]
+      },
+      "expected_type": null
+    },
+    {
+      "test_name": "Number Theory",
+      "problem": "factors of 12",
+      "success": true,
+      "result": {
+        "type": "number_theory",
+        "original_problem": "factors of 12",
+        "answer": [
+          1,
+          2,
+          3,
+          4,
+          6,
+          12
+        ],
+        "steps": [
+          "Problem type detected: number theory",
+          "Description: Prime numbers, GCD, LCM, and modular arithmetic",
+          "1. Computing all factors",
+          "   Number: 12",
+          "   Result: [1, 2, 3, 4, 6, 12]"
+        ]
+      },
+      "expected_type": null
+    },
+    {
+      "test_name": "Statistics",
+      "problem": "mean of [1, 2, 3, 4, 5]",
+      "success": true,
+      "result": {
+        "type": "statistics",
+        "original_problem": "mean of [1, 2, 3, 4, 5]",
+        "data": [
+          1.0,
+          2.0,
+          3.0,
+          4.0,
+          5.0
+        ],
+        "operation": "mean",
+        "answer": 3.0,
+        "steps": [
+          "Problem type detected: statistics",
+          "Description: Statistical calculations and probability",
+          "1. Extracted data: [1.0, 2.0, 3.0, 4.0, 5.0]",
+          "2. Computing mean",
+          "   Formula: sum(x) / n"
+        ]
+      },
+      "expected_type": null
+    },
+    {
+      "test_name": "Statistics",
+      "problem": "median of [1, 2, 3, 4, 5]",
+      "success": true,
+      "result": {
+        "type": "statistics",
+        "original_problem": "median of [1, 2, 3, 4, 5]",
+        "data": [
+          1.0,
+          2.0,
+          3.0,
+          4.0,
+          5.0
+        ],
+        "operation": "median",
+        "answer": 3.0,
+        "steps": [
+          "Problem type detected: statistics",
+          "Description: Statistical calculations and probability",
+          "1. Extracted data: [1.0, 2.0, 3.0, 4.0, 5.0]",
+          "2. Computing median",
+          "   Formula: middle value or average of two middle values"
+        ]
+      },
+      "expected_type": null
+    },
+    {
+      "test_name": "Statistics",
+      "problem": "mode of [1, 2, 2, 3, 4]",
+      "success": true,
+      "result": {
+        "type": "statistics",
+        "original_problem": "mode of [1, 2, 2, 3, 4]",
+        "data": [
+          1.0,
+          2.0,
+          2.0,
+          3.0,
+          4.0
+        ],
+        "operation": "mode",
+        "answer": 2.0,
+        "steps": [
+          "Problem type detected: statistics",
+          "Description: Statistical calculations and probability",
+          "1. Extracted data: [1.0, 2.0, 2.0, 3.0, 4.0]",
+          "2. Computing mode",
+          "   Formula: most frequent value"
+        ]
+      },
+      "expected_type": null
+    },
+    {
+      "test_name": "Statistics",
+      "problem": "variance of [1, 2, 3, 4, 5]",
+      "success": true,
+      "result": {
+        "type": "statistics",
+        "original_problem": "variance of [1, 2, 3, 4, 5]",
+        "data": [
+          1.0,
+          2.0,
+          3.0,
+          4.0,
+          5.0
+        ],
+        "operation": "variance",
+        "answer": 2.0,
+        "steps": [
+          "Problem type detected: statistics",
+          "Description: Statistical calculations and probability",
+          "1. Extracted data: [1.0, 2.0, 3.0, 4.0, 5.0]",
+          "2. Computing variance",
+          "   Formula: sum((x - mean)^2) / n"
+        ]
+      },
+      "expected_type": null
+    },
+    {
+      "test_name": "Statistics",
+      "problem": "standard deviation of [1, 2, 3, 4, 5]",
+      "success": true,
+      "result": {
+        "type": "statistics",
+        "original_problem": "standard deviation of [1, 2, 3, 4, 5]",
+        "data": [
+          1.0,
+          2.0,
+          3.0,
+          4.0,
+          5.0
+        ],
+        "operation": "standard deviation",
+        "answer": 1.4142135623730951,
+        "steps": [
+          "Problem type detected: statistics",
+          "Description: Statistical calculations and probability",
+          "1. Extracted data: [1.0, 2.0, 3.0, 4.0, 5.0]",
+          "2. Computing standard deviation",
+          "   Formula: sqrt(variance)"
+        ]
+      },
+      "expected_type": null
+    },
+    {
+      "test_name": "System of Equations",
+      "problem": "['x + y = 5', 'x - y = 1']",
+      "success": true,
+      "result": {
+        "type": "system_of_equations",
+        "original_problem": [
+          "x + y = 5",
+          "x - y = 1"
+        ],
+        "solutions": {
+          "x": 3.0,
+          "y": 2.0
+        },
+        "steps": [
+          "Problem type detected: system of equations",
+          "Description: System of linear or nonlinear equations",
+          "1. Normalized equations: ['x+y=5', 'x-y=1']",
+          "2. Solving system of equations",
+          "3. Solution found: {'x': 3.0, 'y': 2.0}"
+        ]
+      },
+      "expected_type": null
+    },
+    {
+      "test_name": "System of Equations",
+      "problem": "['2x + y = 7', 'x - y = 1']",
+      "success": true,
+      "result": {
+        "type": "system_of_equations",
+        "original_problem": [
+          "2x + y = 7",
+          "x - y = 1"
+        ],
+        "solutions": {
+          "x": 2.6666666666666665,
+          "y": 1.6666666666666667
+        },
+        "steps": [
+          "Problem type detected: system of equations",
+          "Description: System of linear or nonlinear equations",
+          "1. Normalized equations: ['2*x+y=7', 'x-y=1']",
+          "2. Solving system of equations",
+          "3. Solution found: {'x': 2.6666666666666665, 'y': 1.6666666666666667}"
+        ]
+      },
+      "expected_type": null
+    },
+    {
+      "test_name": "Trigonometry",
+      "problem": "sin(pi/2)",
+      "success": true,
+      "result": {
+        "type": "trigonometry",
+        "original_problem": "sin(pi/2)",
+        "answer": 1.0,
+        "steps": [
+          "Problem type detected: trigonometry",
+          "Description: Trigonometric functions and identities",
+          "1. Normalized equation: sin(pi/2)",
+          "2. Parsed expression: 1",
+          "3. Evaluated result: 1.00000000000000"
+        ]
+      },
+      "expected_type": null
+    },
+    {
+      "test_name": "Trigonometry",
+      "problem": "cos(pi)",
+      "success": true,
+      "result": {
+        "type": "trigonometry",
+        "original_problem": "cos(pi)",
+        "answer": -1.0,
+        "steps": [
+          "Problem type detected: trigonometry",
+          "Description: Trigonometric functions and identities",
+          "1. Normalized equation: cos(pi)",
+          "2. Parsed expression: -1",
+          "3. Evaluated result: -1.00000000000000"
+        ]
+      },
+      "expected_type": null
+    },
+    {
+      "test_name": "Trigonometry",
+      "problem": "tan(pi/4)",
+      "success": true,
+      "result": {
+        "type": "trigonometry",
+        "original_problem": "tan(pi/4)",
+        "answer": 1.0,
+        "steps": [
+          "Problem type detected: trigonometry",
+          "Description: Trigonometric functions and identities",
+          "1. Normalized equation: tan(pi/4)",
+          "2. Parsed expression: 1",
+          "3. Evaluated result: 1.00000000000000"
+        ]
+      },
+      "expected_type": null
+    },
+    {
+      "test_name": "Trigonometry",
+      "problem": "arcsin(1)",
+      "success": true,
+      "result": {
+        "type": "trigonometry",
+        "original_problem": "arcsin(1)",
+        "answer": 1.5707963267948966,
+        "steps": [
+          "Problem type detected: trigonometry",
+          "Description: Trigonometric functions and identities",
+          "1. Normalized equation: arcsin(1)",
+          "2. Parsed expression: pi/2",
+          "3. Evaluated result: 1.57079632679490"
+        ]
+      },
+      "expected_type": null
+    },
+    {
+      "test_name": "Trigonometry",
+      "problem": "arccos(0)",
+      "success": true,
+      "result": {
+        "type": "trigonometry",
+        "original_problem": "arccos(0)",
+        "answer": 1.5707963267948966,
+        "steps": [
+          "Problem type detected: trigonometry",
+          "Description: Trigonometric functions and identities",
+          "1. Normalized equation: arccos(0)",
+          "2. Parsed expression: pi/2",
+          "3. Evaluated result: 1.57079632679490"
+        ]
+      },
+      "expected_type": null
+    },
+    {
+      "test_name": "Trigonometry",
+      "problem": "arctan(1)",
+      "success": true,
+      "result": {
+        "type": "trigonometry",
+        "original_problem": "arctan(1)",
+        "answer": 0.7853981633974483,
+        "steps": [
+          "Problem type detected: trigonometry",
+          "Description: Trigonometric functions and identities",
+          "1. Normalized equation: arctan(1)",
+          "2. Parsed expression: pi/4",
+          "3. Evaluated result: 0.785398163397448"
+        ]
+      },
+      "expected_type": null
+    }
+  ]
+}

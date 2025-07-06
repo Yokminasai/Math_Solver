@@ -54,7 +54,7 @@ class ScrollableFrame(ttk.Frame):
 class MathSolverGUI:
     def __init__(self, root):
         self.root = root
-        self.root.title("Advanced Mathematical Problem Solver")
+        self.root.title("Advanced Mathematical Problem Solver by Yokception")
         style = ttk.Style()
         style.theme_use('clam')
         self.bg_color = "#f0f0f0"
@@ -114,7 +114,8 @@ class MathSolverGUI:
             ("Geometry", "geometry"),
             ("Number Theory", "number_theory"),
             ("Linear Algebra", "linear_algebra"),
-            ("Advanced", "advanced")
+            ("Advanced", "advanced"),
+            ("PDE/Vector Equation", "pde_or_vector_equation")
         ]
         for text, value in types:
             rb = ttk.Radiobutton(type_frame, text=text, value=value, 
@@ -247,14 +248,33 @@ class MathSolverGUI:
                     result = self.solver.advanced_solver.solve_quantum_mechanics(problem)
                 else:
                     result = {"error": "Please specify the advanced problem type."}
+            elif problem_type == "pde_or_vector_equation":
+                self.plot_button.config(state="disabled")
+                result = self.solver.solve_pde_or_vector_equation(problem)
             else:
                 print("Auto-detecting problem type")
-                if '=' in problem:
+                # Try advanced solver first for complex problems
+                if any(keyword in problem.lower() for keyword in [
+                    'residue', 'laurent', 'contour', 'complex',
+                    'group', 'ring', 'field', 'homomorphism',
+                    'zeta', 'elliptic', 'class number',
+                    'lagrange', 'optimization', 'kkt',
+                    'geodesic', 'curvature', 'christoffel',
+                    'quantum', 'hamiltonian', 'eigenstate',
+                    'lyapunov', 'bifurcation', 'chaos',
+                    'operator', 'spectrum', 'hermitian',
+                    'functional', 'banach', 'hilbert'
+                ]):
+                    print("Advanced problem detected, using advanced solver")
+                    result = self.solver.advanced_solver.solve_advanced_problem(problem)
+                elif '=' in problem:
                     print("Equation detected")
-                    result = self.solver.solve_equation(problem)
+                    # Use advanced solver for equations too to avoid validation issues
+                    result = self.solver.advanced_solver.solve_advanced_problem(problem)
                 else:
                     print("Basic arithmetic detected")
-                    result = self.solver.solve_basic_arithmetic(problem)
+                    # Use advanced solver for arithmetic too to avoid validation issues
+                    result = self.solver.advanced_solver.solve_advanced_problem(problem)
             print(f"Result: {result}")
             self.display_result(result)
         except Exception as e:
@@ -275,25 +295,25 @@ class MathSolverGUI:
                 result_container,
                 text=f"Problem type: {problem_type}",
                 style="Result.TLabel",
-                font=("Helvetica", 12, "bold")
+                font=("Segoe UI", 16, "bold")
             )
-            type_label.pack(anchor=tk.W, pady=(0, 10))
+            type_label.pack(anchor=tk.W, pady=(0, 12))
             if "equation" in result:
                 equation_label = ttk.Label(
                     result_container,
                     text=f"Problem: {result['equation']}",
                     style="Result.TLabel",
-                    font=("Helvetica", 12)
+                    font=("Segoe UI", 15, "bold")
                 )
                 equation_label.pack(anchor=tk.W, pady=(0, 10))
             if "answer" in result or "solutions" in result or "result" in result:
                 answer_frame = ttk.Frame(result_container)
-                answer_frame.pack(fill=tk.X, pady=(0, 10))
+                answer_frame.pack(fill=tk.X, pady=(0, 12))
                 answer_label = ttk.Label(
                     answer_frame,
                     text="Answer:",
                     style="Result.TLabel",
-                    font=("Helvetica", 12, "bold")
+                    font=("Segoe UI", 15, "bold")
                 )
                 answer_label.pack(side=tk.LEFT)
                 if "answer" in result:
@@ -303,8 +323,10 @@ class MathSolverGUI:
                         if len(result["solutions"]) > 1:
                             answer_text = ", ".join(f"x₍{i+1}₎ = {sol}" 
                                                   for i, sol in enumerate(result["solutions"]))
-                        else:
+                        elif len(result["solutions"]) == 1:
                             answer_text = f"x = {result['solutions'][0]}"
+                        else:
+                            answer_text = "No algebraic solution"
                     else:
                         answer_text = f"x = {result['solutions']}"
                 else:
@@ -313,30 +335,56 @@ class MathSolverGUI:
                     answer_frame,
                     text=answer_text,
                     style="Result.TLabel",
-                    font=("Helvetica", 12),
+                    font=("Segoe UI", 15),
                     foreground=self.success_color
                 )
-                answer_value.pack(side=tk.LEFT, padx=(5, 0))
+                answer_value.pack(side=tk.LEFT, padx=(8, 0))
             if "steps" in result:
                 steps_label = ttk.Label(
                     self.steps_frame,
-                    text="Solution steps:",
+                    text="Solution Steps:",
                     style="Subtitle.TLabel",
-                    font=("Helvetica", 12, "bold")
+                    font=("Segoe UI", 15, "bold")
                 )
-                steps_label.pack(anchor=tk.W, pady=(10, 5))
+                steps_label.pack(anchor=tk.W, pady=(14, 7))
                 steps_text = tk.Text(
                     self.steps_frame,
                     wrap=tk.WORD,
-                    font=("Helvetica", 11),
+                    font=("Segoe UI", 13),
                     height=15,
-                    width=60,
+                    width=70,
                     background=self.bg_color,
-                    relief=tk.FLAT
+                    relief=tk.FLAT,
+                    padx=12,
+                    pady=8,
+                    spacing1=6,
+                    spacing3=6
                 )
-                steps_text.pack(fill=tk.BOTH, expand=True, padx=10)
+                steps_text.pack(fill=tk.BOTH, expand=True, padx=10, pady=(0, 10))
                 for step in result["steps"]:
-                    steps_text.insert(tk.END, f"{step}\n")
+                    # Translate Thai to English if needed
+                    step_en = step
+                    step_en = step_en.replace("แปลงสมการ/normalize", "Normalize equation")
+                    step_en = step_en.replace("ย้ายข้าง", "Rearrange")
+                    step_en = step_en.replace("ประเมินค่าด้านขวา", "Evaluate right side")
+                    step_en = step_en.replace("แปลง log เป็นเลขชี้กำลัง", "Convert log to exponent form")
+                    step_en = step_en.replace("แก้ x", "Solve for x")
+                    step_en = step_en.replace("คำตอบ", "Answer")
+                    step_en = step_en.replace("คําตอบ", "Answer")
+                    step_en = step_en.replace("ตรวจสอบ", "Verify")
+                    step_en = step_en.replace("ไม่สามารถประเมินค่าด้านขวา", "Cannot evaluate right side")
+                    step_en = step_en.replace("สมการเชิงเส้น (Linear equation)", "Linear equation")
+                    step_en = step_en.replace("จัดรูปสมการ", "Simplify equation")
+                    step_en = step_en.replace("รวมพจน์", "Combine terms")
+                    step_en = step_en.replace("ตั้งสมการ", "Set up equation")
+                    step_en = step_en.replace("คำนวณด้านขวา", "Calculate right side")
+                    step_en = step_en.replace("คำนวณด้านซ้าย", "Calculate left side")
+                    step_en = step_en.replace("คำนวณเลขยกกำลัง", "Calculate exponent")
+                    step_en = step_en.replace("แยกตัวแปร", "Isolate variable")
+                    step_en = step_en.replace("ไม่สามารถตรวจสอบคำตอบ", "Cannot verify answer")
+                    step_en = step_en.replace("เกิดข้อผิดพลาด", "Error occurred")
+                    step_en = step_en.replace("สมการ", "Equation")
+                    steps_text.insert(tk.END, f"{step_en}\n\n")
                 steps_text.configure(state=tk.DISABLED)
             print("Result displayed.")
             self.create_visualization(result)
@@ -413,29 +461,54 @@ class MathSolverGUI:
                     plt.ylabel("Frequency")
                     plt.legend()
             elif result["type"] in ["equation", "system_of_equations"]:
-                if "solutions" in result:
-                    if isinstance(result["solutions"], (list, tuple)) and len(result["solutions"]) > 0:
-                        x = np.linspace(-10, 10, 1000)
-                        if "equation" in result:
-                            left, right = result["equation"].split('=')
+                if "equation" in result and "solutions" in result:
+                    eq_str = result["equation"]
+                    try:
+                        import sympy as sp
+                        left, right = eq_str.split('=')
+                        x = sp.symbols('x')
+                        left_expr = sp.sympify(left)
+                        right_expr = sp.sympify(right)
+                        f = sp.lambdify(x, left_expr - right_expr, modules=['numpy'])
+                        # --- Auto-adjust x-range for log/sqrt/1/x ---
+                        # Try to find a valid domain for plotting
+                        x_ranges = [(-10, 10), (0.01, 10), (1e-3, 20), (-20, -0.01)]
+                        found_valid = False
+                        for x_min, x_max in x_ranges:
+                            x_vals = np.linspace(x_min, x_max, 1000)
                             try:
-                                y_left = eval(left.replace('x', 'x_val') for x_val in x)
-                                y_right = eval(right.replace('x', 'x_val') for x_val in x)
-                                plt.plot(x, y_left, label='Left side f(x)')
-                                plt.plot(x, y_right, label='Right side f(x)')
-                                for sol in result["solutions"]:
-                                    x_sol = float(sol)
-                                    y_sol = eval(left.replace('x', str(x_sol)))
-                                    plt.plot(x_sol, y_sol, 'ro', label=f'Solution x = {x_sol:.2f}')
-                            except:
-                                pass
-                        plt.grid(True)
-                        plt.axhline(y=0, color='k', linewidth=0.5)
-                        plt.axvline(x=0, color='k', linewidth=0.5)
-                        plt.title("Equation Solution Graph")
-                        plt.xlabel('x')
-                        plt.ylabel('y')
-                        plt.legend()
+                                y_vals = f(x_vals)
+                                mask = np.isfinite(y_vals)
+                                if np.any(mask):
+                                    plt.plot(x_vals[mask], y_vals[mask], label='f(x) = left - right')
+                                    plt.axhline(y=0, color='k', linewidth=0.5)
+                                    for sol in result["solutions"]:
+                                        try:
+                                            x_sol = float(sol)
+                                            if x_min <= x_sol <= x_max:
+                                                plt.plot(x_sol, 0, 'ro', label=f'Solution x = {x_sol:.2f}')
+                                        except Exception:
+                                            continue
+                                    plt.grid(True)
+                                    plt.axvline(x=0, color='k', linewidth=0.5)
+                                    plt.title("Equation Solution Graph")
+                                    plt.xlabel('x')
+                                    plt.ylabel('y')
+                                    plt.legend()
+                                    found_valid = True
+                                    break
+                            except Exception:
+                                continue
+                        if not found_valid:
+                            plt.clf()
+                            plt.text(0.5, 0.5, 'No valid y values to plot (check function domain)', ha='center', va='center', transform=plt.gca().transAxes)
+                            plt.title("Equation Solution Graph (No valid data)")
+                            plt.axis('off')
+                    except Exception as e:
+                        plt.clf()
+                        plt.text(0.5, 0.5, f'Cannot plot: {e}', ha='center', va='center', transform=plt.gca().transAxes)
+                        plt.title("Equation Solution Graph (Error)")
+                        plt.axis('off')
             elif result["type"] == "calculus":
                 if "function" in result:
                     x = np.linspace(-5, 5, 1000)
